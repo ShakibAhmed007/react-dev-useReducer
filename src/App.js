@@ -30,7 +30,7 @@ export default function App() {
       <hr />
       <SimplifyComplexCounter />
       <hr />
-      <h3>pass reducer state to leaf node component</h3>
+      <h3>pass reducer state to leaf node component , (global state )</h3>
       <ComponentA />
     </div>
   );
