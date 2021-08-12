@@ -17,7 +17,7 @@ const Counter = () => {
   let value = 0;
   return (
     <div>
-      <h4> Value is {count}</h4>
+      <h2> Value is {count}</h2>
       <button type="button" onClick={() => dispatch('increment')}>
         Increment
       </button>
