@@ -15,8 +15,6 @@ const reducer = (state, action) => {
 const SimplifyComplexCounter = () => {
   const [count, dispatch] = useReducer(reducer, initialState);
   const [count1, dispatch1] = useReducer(reducer, initialState);
-
-  let value = 0;
   return (
     <div>
       <h2> Counter Value is == {count}</h2>
