@@ -17,6 +17,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
+const counterContext = React.createContext();
 
 export default function App() {
   const [count, dispatch] = useReducer(reducer, initialState);
@@ -31,7 +32,11 @@ export default function App() {
       <SimplifyComplexCounter />
       <hr />
       <h3>pass reducer state to leaf node component , (global state )</h3>
-      <ComponentA />
+      <counterContext.Provider
+        value={{ countValue: count, countDispatch: dispatch }}
+      >
+        <ComponentA />
+      </counterContext.Provider>
     </div>
   );
 }
