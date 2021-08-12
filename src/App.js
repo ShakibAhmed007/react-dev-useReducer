@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import './style.css';
 import Counter from './Counter';
 import ComplexCounter from './ComplexCounter';
 import SimplifyComplexCounter from './SimplifyComplexCounter';
 
+import ComponentA from './ComponentA';
+
+const initialState = 0;
+const reducer = (state, action) => {
+  switch (action) {
+    case 'increment':
+      return state + 1;
+    case 'decrement':
+      return state - 1;
+    default:
+      return state;
+  }
+};
+
 export default function App() {
+  const [count, dispatch] = useReducer(reducer, initialState);
+
   return (
     <div>
       <h1>useReducer !!!</h1>
@@ -13,6 +29,9 @@ export default function App() {
       <ComplexCounter />
       <hr />
       <SimplifyComplexCounter />
+      <hr />
+      <h3>pass reducer state to leaf node component</h3>
+      <ComponentA />
     </div>
   );
 }
