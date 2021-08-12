@@ -3,9 +3,9 @@ import './style.css';
 import Counter from './Counter';
 import ComplexCounter from './ComplexCounter';
 import SimplifyComplexCounter from './SimplifyComplexCounter';
-
 import ComponentA from './ComponentA';
 
+export const counterContext = React.createContext();
 const initialState = 0;
 const reducer = (state, action) => {
   switch (action) {
@@ -17,10 +17,10 @@ const reducer = (state, action) => {
       return state;
   }
 };
-const counterContext = React.createContext();
 
 export default function App() {
   const [count, dispatch] = useReducer(reducer, initialState);
+  console.log('----', counterContext);
 
   return (
     <div>
