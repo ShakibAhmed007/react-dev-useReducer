@@ -6,9 +6,9 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'increment':
-      return { counter: state.counter + 1 };
+      return { counter: state.counter + action.value };
     case 'decrement':
-      return { counter: state.counter - 1 };
+      return { counter: state.counter - action.value };
     default:
       return { counter: state.counter };
   }
@@ -24,21 +24,46 @@ const ComplexCounter = () => {
         type="button"
         onClick={() =>
           dispatch({
-            type: 'increment'
+            type: 'increment',
+            value: 1
           })
         }
       >
-        Increment
+        Increment by 1
       </button>
       <button
         type="button"
         onClick={() =>
           dispatch({
-            type: 'decrement'
+            type: 'increment',
+            value: 5
           })
         }
       >
-        Decrement
+        Increment by 5
+      </button>
+      <br />
+      <button
+        type="button"
+        onClick={() =>
+          dispatch({
+            type: 'decrement',
+            value: 1
+          })
+        }
+      >
+        Decrement by 1
+      </button>
+      <button
+        type="button"
+        onClick={() =>
+          dispatch({
+            type: 'decrement',
+            value: 5
+          })
+        }
+      >
+        Decrement by 5
       </button>
     </div>
   );
