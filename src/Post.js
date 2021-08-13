@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Post = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState({});
 
   useEffect(() => {
     setLoading(true);
@@ -17,7 +17,7 @@ const Post = () => {
       .catch(error => {
         setError('Error Occured');
         setLoading(false);
-        setPosts([]);
+        setPosts({});
       });
   }, []);
 
