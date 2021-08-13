@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 const initialState = {
   loading: false,
   error: '',
@@ -24,6 +24,19 @@ const reducer = (state, action) => {
       return state;
   }
 };
-const Post2 = () => {};
+const Post2 = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  useEffect(() => {
+    setLoading(true);
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => {
+        dispatch({type: 'Success', data: json});
+      })
+      .catch(error => {
+        dispatch({type: 'Error', data: json});
+      });
+  }, []);
+};
 
 export default Post2;
