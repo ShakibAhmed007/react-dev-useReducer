@@ -4,6 +4,7 @@ import Counter from './Counter';
 import ComplexCounter from './ComplexCounter';
 import SimplifyComplexCounter from './SimplifyComplexCounter';
 import ComponentA from './ComponentA';
+import Post from './Post';
 
 export const counterContext = React.createContext();
 const initialState = 0;
@@ -37,6 +38,9 @@ export default function App() {
       >
         <ComponentA />
       </counterContext.Provider>
+      <hr />
+      <p>Fetch Data from Api</p>
+      <Post />
     </div>
   );
 }
