@@ -5,6 +5,7 @@ import ComplexCounter from './ComplexCounter';
 import SimplifyComplexCounter from './SimplifyComplexCounter';
 import ComponentA from './ComponentA';
 import Post from './Post';
+import Post2 from './PostByUseReducer';
 
 export const counterContext = React.createContext();
 const initialState = 0;
@@ -39,8 +40,11 @@ export default function App() {
         <ComponentA />
       </counterContext.Provider>
       <hr />
-      <p>Fetch Data from Api</p>
+      <p>Fetch Data from Api (useState)</p>
       <Post />
+      <hr />
+      <p>Fetch Data from Api (useReducer)</p>
+      <Post2 />
     </div>
   );
 }

@@ -27,16 +27,22 @@ const reducer = (state, action) => {
 const Post2 = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
-    setLoading(true);
     fetch('https://jsonplaceholder.typicode.com/todos/1')
       .then(response => response.json())
       .then(json => {
-        dispatch({type: 'Success', data: json});
+        dispatch({ type: 'Success', data: json });
       })
       .catch(error => {
-        dispatch({type: 'Error', data: json});
+        dispatch({ type: 'Error' });
       });
   }, []);
+
+  return (
+    <div>
+      <p>{state.loading ? 'Loading ......' : state.posts.title}</p>
+      <p>{state.error ? state.error : ''}</p>
+    </div>
+  );
 };
 
 export default Post2;
